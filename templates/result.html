@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="generator" content="Jekyll v3.6.0">
+
+    <title>Colored</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.min.css') }}">
+
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+
+    <style>
+        .vertical-center {
+            min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+            min-height: 100vh; /* These two lines are counted as one :-)       */
+
+            display: flex;
+            align-items: center;
+        }
+    </style>
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <img class=" tr" height="100px" src="{{ url_for('static',filename='imgs/logo.png') }}"/>
+        </div> 
+
+        <div class="row justify-content-center" align="center" style="margin-top: 60px; margin-bottom: 50px;">
+            <div class="col-sm-4" align="right" style="margin-right: 50px;">
+                <img src="{{ url_for('static',filename='imgs/file.jpg') }}" width="256" height="256"/>
+            </div>
+            <div class="col-sm-4" align="left" style="margin-left: 50px">
+                <img src="{{ url_for('static',filename='imgs/colored.png') }}" width="256" height="256" />
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <a href="http://127.0.0.1:5000" class="btn btn-outline-primary btn-lg mt-3"
+            style="letter-spacing: 5px;font-weight: 500">COLOR MORE</a>
+        </div>
+        
+    </div>
+
+  </body>
+</html>

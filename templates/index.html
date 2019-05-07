@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Jekyll v3.6.0">
+
+<title>Skaitch</title>
+
+<!-- Bootstrap core CSS -->
+
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.min.css') }}">
+
+  <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <style>
+      .vertical-center {
+          min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+          min-height: 100vh; /* These two lines are counted as one :-)       */
+
+          display: flex;
+          align-items: center;
+        }
+
+        /* .upload-btn-wrapper {
+          position: relative;
+          overflow: hidden;
+          display: inline-block;
+        } */
+
+        .upload-btn-wrapper input[type=file] {
+          font-size: 100px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0;
+        }
+
+        .tr {
+          transform: rotate(-40deg);
+          -webkit-transform: rotate(-40deg);
+          margin-top: 200px;
+        }
+  </style>
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="row justify-content-center">
+                <img class=" tr" height="300px" src="{{ url_for('static',filename='imgs/logo.png') }}"/>
+            </div> 
+        </div>
+
+        <div class="col-sm-6" style="margin-top: 150px;">
+            <div class="row  justify-content-center">
+                <form id="form1" action="http://127.0.0.1:5000/color" method="POST" enctype="multipart/form-data">
+                  
+                  <div class="upload-btn-wrapper">
+                    <button class="btn btn-info">Upload a file</button>
+                    <input type='file' name="image" id="imgInp" />
+                  </div>
+                </form>
+              </div>
+        
+              <div class="row justify-content-center mt-5" style="margin-left: 90px;">
+                <div class="col-sm-6">
+                  <img id="blah" src="#"/>
+                </div>
+              </div>
+              <div class="row justify-content-center mt-5" style="margin-left: 10px;">
+                  <Button type="submit" id="up" style="display: none" class="btn btn-outline-primary">Colorize</button>
+              </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+  <script>
+    $('#up').on('click', function (e) {
+      e.preventDefault();
+      $('#form1').submit();
+    })
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#imgInp").change(function() {
+      $('#up').css({display: 'block'});
+      readURL(this);
+    });
+  </script>
+</html>
